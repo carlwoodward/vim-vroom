@@ -123,6 +123,11 @@ g:vroom_test_unit_command                             *vroom_test_unit_command*
                         tests, e.g. you can use 'm ' or 'testrbl '.
                         Default: 'ruby -Itest '
 
+g:vroom_use_zeus                                      *vroom_use_zeus*
+                        This lets you specify to use zeus rather than bundle
+                        exec rspec. Zeus will be on by default if there is
+                        zeus.json in your project.
+
 ===============================================================================
 LICENSE                                                         *vroom-license*
 
