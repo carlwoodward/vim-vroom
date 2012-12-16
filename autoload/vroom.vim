@@ -40,7 +40,6 @@ endif
 if !exists("g:vroom_use_zeus")
   if filereadable("zeus.json")
     let g:vroom_use_zeus = 1
-    let g:vroom_use_bundle_exec = 0
   endif
 endif
 
@@ -242,8 +241,12 @@ function s:IsUsingBinstubs()
 endfunction
 
 function s:IsUsingZeus()
-  if g:vroom_use_zeus
+  if g:vroom_use_zeus && filereadable(".zeus.sock")
     let s:test_runner_prefix = "zeus "
+    let g:vroom_use_bundle_exec = 0
+  else
+    let s:test_runner_prefix = ""
+    let g:vroom_use_bundle_exec = 1
   endif
 endfunction
 
